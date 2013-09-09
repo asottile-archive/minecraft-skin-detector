@@ -15,7 +15,7 @@ def main(argv):
         'usernames', type=str, nargs='+',
         help='Usernames to check for skin changes',
     )
-    args = parser.parse_args(argv)
+    args = parser.parse_args(argv[1:])
 
     for username in args.usernames:
         user_skin = get_player_skin(username)

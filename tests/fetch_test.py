@@ -3,6 +3,7 @@ import mock
 import testify as T
 import urllib2
 
+from fetch import FailedRequestError
 from fetch import get_player_skin
 from fetch import SKIN_URL
 
@@ -21,6 +22,11 @@ class TestGetPlayerSkin(T.TestCase):
 
         self.urlopen_mock.assert_called_once_with(SKIN_URL % PLAYER)
         T.assert_equal(ret, self.urlopen_mock(None).read())
+
+    def test_get_player_skin_raises_with_non_200(self):
+        self.urlopen_mock.return_value.getcode.return_value = 500
+        with T.assert_raises(FailedRequestError):
+            get_player_skin('Notch')
 
 @T.suite('integration')
 @T.suite('external_deps')

@@ -6,7 +6,7 @@ import config
 from util.iter import flatten
 
 def get_datafile(datafile_name):
-    filename = os.path.join(config.BASE_PATH, 'testing/data', datafile_name)
+    filename = os.path.join(config.BASE_DIR, 'testing/data', datafile_name)
     with open(filename, 'r') as datafile:
         return datafile.read()
 

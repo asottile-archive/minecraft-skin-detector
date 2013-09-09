@@ -59,6 +59,7 @@ check_python_module simplejson
 check_python_module testify
 check_python_module mock
 check_python_module urllib2
+check_python_module argparse
 
 exit $exit_ret
 

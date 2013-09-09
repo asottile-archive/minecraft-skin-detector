@@ -38,6 +38,11 @@ class TestIntegration(T.TestCase):
     def _get_skin_file_path(self):
         return os.path.join(self.data_tmp_dir, '%s.png' % self.username)
 
+    def test_creates_data_dir_if_not_there(self):
+        shutil.rmtree(self.data_tmp_dir)
+        main([self.username])
+        T.assert_equal(os.path.exists(self.data_tmp_dir), True)
+
     def test_empty_data_dir(self):
         T.assert_equal(os.path.exists(self._get_skin_file_path()), False)
         main([self.username])

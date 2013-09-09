@@ -58,7 +58,6 @@ check_python_module coverage
 check_python_module simplejson
 check_python_module testify
 check_python_module mock
-check_python_module PIL
 check_python_module urllib2
 
 exit $exit_ret
